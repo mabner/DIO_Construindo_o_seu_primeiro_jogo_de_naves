@@ -1,2 +1,3 @@
-# DIO_Construindo_o_seu_primeiro_jogo_de_naves
-Repositório do desafio de projeto 'Construindo o seu primeiro jogo de naves'
+# DIO. Construindo o seu primeiro jogo de naves
+
+Repositório do desafio de projeto 'Construindo o seu primeiro jogo de naves', seguindo as aulas do professor Denilson Bonatti.
