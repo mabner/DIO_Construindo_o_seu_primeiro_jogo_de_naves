@@ -154,7 +154,7 @@
 }
 
 body {
-	background-image: url(../imgs/fundo.jpg);
+	background-image: url(../img/fundo.jpg);
 }
 
 h1 {
@@ -205,51 +205,51 @@ button:hover {
 	margin-right: auto;
 }
 
-#fundoGame {
+#gameBackground {
 	width: 950px;
 	height: 630px;
-	background-image: url(../imgs/fundo_game.jpg);
+	background-image: url(../img/fundo_game.jpg);
 	border-color: #fff;
 	border-style: solid;
 }
 
-#jogador {
+#player {
 	width: 256px;
 	height: 66px;
 	position: absolute;
 	left: 8px;
 	top: 179px;
-	background-image: url(../imgs/apache.png);
+	background-image: url(../img/apache.png);
 }
 
-#inimigo1 {
+#enemy1 {
 	width: 256px;
 	height: 66px;
 	position: absolute;
 	left: 689px;
 	top: 253px;
-	background-image: url(../imgs/inimigo1.png);
+	background-image: url(../img/inimigo1.png);
 }
 
-#inimigo2 {
+#enemy2 {
 	width: 165px;
 	height: 70px;
 	position: absolute;
 	left: 775px;
 	top: 447px;
-	background-image: url(../imgs/inimigo2.png);
+	background-image: url(../img/inimigo2.png);
 }
 
-#amigo {
+#friend {
 	width: 44px;
 	height: 51px;
 	position: absolute;
 	left: 10px;
 	top: 464px;
-	background-image: url(../imgs/amigo.png);
+	background-image: url(../img/friend.png);
 }
 
-#inicio {
+#start {
 	width: 350px;
 	height: auto;
 	background-color: #fff;
@@ -264,7 +264,7 @@ button:hover {
 	width: 50px;
 	height: 8px;
 	position: absolute;
-	background-image: url(../imgs/disparo.png);
+	background-image: url(../img/disparo.png);
 }
 
 #explosao1 {
@@ -313,7 +313,7 @@ button:hover {
 }
 
 .anima1 {
-	background-image: url(../imgs/apache.png);
+	background-image: url(../img/apache.png);
 	animation: play 0.5s steps(2) infinite;
 
 	-webkit-animation: play 0.5s steps(2) infinite;
@@ -323,7 +323,7 @@ button:hover {
 }
 
 .anima2 {
-	background-image: url(../imgs/inimigo1.png);
+	background-image: url(../img/inimigo1.png);
 	animation: play 0.5s steps(2) infinite;
 	-webkit-animation: play 0.5s steps(2) infinite;
 	-moz-animation: play 0.5s steps(2) infinite;
@@ -332,7 +332,7 @@ button:hover {
 }
 
 .anima3 {
-	background-image: url(../imgs/amigo.png);
+	background-image: url(../img/friend.png);
 	animation: play2 0.9s steps(12) infinite;
 	-webkit-animation: play2 0.9s steps(12) infinite;
 	-moz-animation: play2 0.9s steps(12) infinite;
@@ -343,7 +343,7 @@ button:hover {
 .anima4 {
 	width: 44px;
 	height: 51px;
-	background-image: url(../imgs/amigo_morte.png);
+	background-image: url(../img/friend_death.png);
 	animation: play3 0.5s steps(7) infinite;
 	-webkit-animation: play3 0.5s steps(7) infinite;
 	-moz-animation: play3 0.5s steps(7) infinite;

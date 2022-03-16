@@ -1,12 +1,12 @@
 function start() {
-	$('#inicio').hide();
+	$('#start').hide();
 
-	$('#fundoGame').append("<div id='jogador' class='anima1'></div>");
-	$('#fundoGame').append("<div id='inimigo1' class='anima2'></div>");
-	$('#fundoGame').append("<div id='inimigo2'></div>");
-	$('#fundoGame').append("<div id='amigo' class='anima3'></div>");
-	$('#fundoGame').append("<div id='score'></div>");
-	$('#fundoGame').append("<div id='energia'></div>");
+	$('#gameBackground').append("<div id='player' class='anima1'></div>");
+	$('#gameBackground').append("<div id='enemy1' class='anima2'></div>");
+	$('#gameBackground').append("<div id='enemy2'></div>");
+	$('#gameBackground').append("<div id='friend' class='anima3'></div>");
+	$('#gameBackground').append("<div id='score'></div>");
+	$('#gameBackground').append("<div id='energia'></div>");
 
 	// game variables
 	var game = {};
@@ -65,24 +65,24 @@ function start() {
 	}
 
 	function moveBackground() {
-		esquerda = parseInt($('#fundoGame').css('background-position'));
-		$('#fundoGame').css('background-position', esquerda - 1);
+		esquerda = parseInt($('#gameBackground').css('background-position'));
+		$('#gameBackground').css('background-position', esquerda - 1);
 	}
 
 	function movePlayer() {
 		if (game.pressed[KEYS.up]) {
-			var topo = parseInt($('#jogador').css('top'));
-			$('#jogador').css('top', topo - 10);
+			var topo = parseInt($('#player').css('top'));
+			$('#player').css('top', topo - 10);
 			if (topo <= 0) {
-				$('#jogador').css('top', topo + 10);
+				$('#player').css('top', topo + 10);
 			}
 		}
 
 		if (game.pressed[KEYS.down]) {
-			var topo = parseInt($('#jogador').css('top'));
-			$('#jogador').css('top', topo + 10);
+			var topo = parseInt($('#player').css('top'));
+			$('#player').css('top', topo + 10);
 			if (topo >= 434) {
-				$('#jogador').css('top', topo - 10);
+				$('#player').css('top', topo - 10);
 			}
 		}
 
@@ -92,32 +92,32 @@ function start() {
 	}
 
 	function moveEnemy1() {
-		posicaoX = parseInt($('#inimigo1').css('left'));
-		$('#inimigo1').css('left', posicaoX - gameSpeed);
-		$('#inimigo1').css('top', positionY);
+		posicaoX = parseInt($('#enemy1').css('left'));
+		$('#enemy1').css('left', posicaoX - gameSpeed);
+		$('#enemy1').css('top', positionY);
 
 		if (posicaoX <= 0) {
 			positionY = parseInt(Math.random() * 334);
-			$('#inimigo1').css('left', 694);
-			$('#inimigo1').css('top', positionY);
+			$('#enemy1').css('left', 694);
+			$('#enemy1').css('top', positionY);
 		}
 	}
 
 	function moveEnemy2() {
-		posicaoX = parseInt($('#inimigo2').css('left'));
-		$('#inimigo2').css('left', posicaoX - 3);
+		posicaoX = parseInt($('#enemy2').css('left'));
+		$('#enemy2').css('left', posicaoX - 3);
 
 		if (posicaoX <= 0) {
-			$('#inimigo2').css('left', 775);
+			$('#enemy2').css('left', 775);
 		}
 	}
 
 	function moveFriend() {
-		posicaoX = parseInt($('#amigo').css('left'));
-		$('#amigo').css('left', posicaoX + 1);
+		posicaoX = parseInt($('#friend').css('left'));
+		$('#friend').css('left', posicaoX + 1);
 
 		if (posicaoX > 906) {
-			$('#amigo').css('left', 0);
+			$('#friend').css('left', 0);
 		}
 	}
 
@@ -126,11 +126,11 @@ function start() {
 			soundShoot.play();
 			canShoot = false;
 
-			topo = parseInt($('#jogador').css('top'));
-			posicaoX = parseInt($('#jogador').css('left'));
+			topo = parseInt($('#player').css('top'));
+			posicaoX = parseInt($('#player').css('left'));
 			tiroX = posicaoX + 190;
 			topoTiro = topo + 37;
-			$('#fundoGame').append("<div id='disparo'></div");
+			$('#gameBackground').append("<div id='disparo'></div");
 			$('#disparo').css('top', topoTiro);
 			$('#disparo').css('left', tiroX);
 
@@ -151,31 +151,31 @@ function start() {
 	}
 
 	function colisao() {
-		var colisao1 = $('#jogador').collision($('#inimigo1'));
-		var colisao2 = $('#jogador').collision($('#inimigo2'));
-		var colisao3 = $('#disparo').collision($('#inimigo1'));
-		var colisao4 = $('#disparo').collision($('#inimigo2'));
-		var colisao5 = $('#jogador').collision($('#amigo'));
-		var colisao6 = $('#inimigo2').collision($('#amigo'));
+		var colisao1 = $('#player').collision($('#enemy1'));
+		var colisao2 = $('#player').collision($('#enemy2'));
+		var colisao3 = $('#disparo').collision($('#enemy1'));
+		var colisao4 = $('#disparo').collision($('#enemy2'));
+		var colisao5 = $('#player').collision($('#friend'));
+		var colisao6 = $('#enemy2').collision($('#friend'));
 
 		if (colisao1.length > 0) {
 			actualEnergy--;
-			inimigo1X = parseInt($('#inimigo1').css('left'));
-			inimigo1Y = parseInt($('#inimigo1').css('top'));
+			inimigo1X = parseInt($('#enemy1').css('left'));
+			inimigo1Y = parseInt($('#enemy1').css('top'));
 			explosao1(inimigo1X, inimigo1Y);
 
 			positionY = parseInt(Math.random() * 334);
-			$('#inimigo1').css('left', 694);
-			$('#inimigo1').css('top', positionY);
+			$('#enemy1').css('left', 694);
+			$('#enemy1').css('top', positionY);
 		}
 
 		if (colisao2.length > 0) {
 			actualEnergy--;
-			inimigo2X = parseInt($('#inimigo2').css('left'));
-			inimigo2Y = parseInt($('#inimigo2').css('top'));
+			inimigo2X = parseInt($('#enemy2').css('left'));
+			inimigo2Y = parseInt($('#enemy2').css('top'));
 			explosao2(inimigo2X, inimigo2Y);
 
-			$('#inimigo2').remove();
+			$('#enemy2').remove();
 
 			reposicionaInimigo2();
 		}
@@ -183,22 +183,22 @@ function start() {
 		if (colisao3.length > 0) {
 			gameSpeed = gameSpeed + 0.3;
 			score = score + 100;
-			inimigo1X = parseInt($('#inimigo1').css('left'));
-			inimigo1Y = parseInt($('#inimigo1').css('top'));
+			inimigo1X = parseInt($('#enemy1').css('left'));
+			inimigo1Y = parseInt($('#enemy1').css('top'));
 
 			explosao1(inimigo1X, inimigo1Y);
 			$('#disparo').css('left', 950);
 
 			positionY = parseInt(Math.random() * 334);
-			$('#inimigo1').css('left', 694);
-			$('#inimigo1').css('top', positionY);
+			$('#enemy1').css('left', 694);
+			$('#enemy1').css('top', positionY);
 		}
 
 		if (colisao4.length > 0) {
 			score = score + 50;
-			inimigo2X = parseInt($('#inimigo2').css('left'));
-			inimigo2Y = parseInt($('#inimigo2').css('top'));
-			$('#inimigo2').remove();
+			inimigo2X = parseInt($('#enemy2').css('left'));
+			inimigo2Y = parseInt($('#enemy2').css('top'));
+			$('#enemy2').remove();
 
 			explosao2(inimigo2X, inimigo2Y);
 			$('#disparo').css('left', 950);
@@ -210,15 +210,15 @@ function start() {
 			soundRescue.play();
 			saved++;
 			reposicionaAmigo();
-			$('#amigo').remove();
+			$('#friend').remove();
 		}
 
 		if (colisao6.length > 0) {
 			lost++;
-			amigoX = parseInt($('#amigo').css('left'));
-			amigoY = parseInt($('#amigo').css('top'));
-			explosao3(amigoX, amigoY);
-			$('#amigo').remove();
+			friendX = parseInt($('#friend').css('left'));
+			friendY = parseInt($('#friend').css('top'));
+			explosao3(friendX, friendY);
+			$('#friend').remove();
 
 			reposicionaAmigo();
 		}
@@ -226,8 +226,8 @@ function start() {
 
 	function explosao1(inimigo1X, inimigo1Y) {
 		soundExplosion.play();
-		$('#fundoGame').append("<div id='explosao1'></div");
-		$('#explosao1').css('background-image', 'url(imgs/explosao.png)');
+		$('#gameBackground').append("<div id='explosao1'></div");
+		$('#explosao1').css('background-image', 'url(img/explosao.png)');
 		var div = $('#explosao1');
 		div.css('top', inimigo1Y);
 		div.css('left', inimigo1X);
@@ -256,15 +256,15 @@ function start() {
 			tempoColisao4 = null;
 
 			if (endGame == false) {
-				$('#fundoGame').append('<div id=inimigo2></div');
+				$('#gameBackground').append('<div id=inimigo2></div');
 			}
 		}
 	}
 
 	function explosao2(inimigo2X, inimigo2Y) {
 		soundExplosion.play();
-		$('#fundoGame').append("<div id='explosao2'></div");
-		$('#explosao2').css('background-image', 'url(imgs/explosao.png)');
+		$('#gameBackground').append("<div id='explosao2'></div");
+		$('#explosao2').css('background-image', 'url(img/explosao.png)');
 		var div2 = $('#explosao2');
 		div2.css('top', inimigo2Y);
 		div2.css('left', inimigo2X);
@@ -293,16 +293,16 @@ function start() {
 			tempoAmigo = null;
 
 			if (endGame == false) {
-				$('#fundoGame').append("<div id='amigo' class='anima3'></div>");
+				$('#gameBackground').append("<div id='friend' class='anima3'></div>");
 			}
 		}
 	}
 
-	function explosao3(amigoX, amigoY) {
+	function explosao3(friendX, friendY) {
 		soundLost.play();
-		$('#fundoGame').append("<div id='explosao3' class='anima4'></div");
-		$('#explosao3').css('top', amigoY);
-		$('#explosao3').css('left', amigoX);
+		$('#gameBackground').append("<div id='explosao3' class='anima4'></div");
+		$('#explosao3').css('top', friendY);
+		$('#explosao3').css('left', friendX);
 		var tempoExplosao3 = window.setInterval(resetaExplosao3, 1000);
 
 		function resetaExplosao3() {
@@ -320,19 +320,19 @@ function start() {
 
 	function energia() {
 		if (actualEnergy == 3) {
-			$('#energia').css('background-image', 'url(imgs/energia3.png)');
+			$('#energia').css('background-image', 'url(img/energia3.png)');
 		}
 
 		if (actualEnergy == 2) {
-			$('#energia').css('background-image', 'url(imgs/energia2.png)');
+			$('#energia').css('background-image', 'url(img/energia2.png)');
 		}
 
 		if (actualEnergy == 1) {
-			$('#energia').css('background-image', 'url(imgs/energia1.png)');
+			$('#energia').css('background-image', 'url(img/energia1.png)');
 		}
 
 		if (actualEnergy == 0) {
-			$('#energia').css('background-image', 'url(imgs/energia0.png)');
+			$('#energia').css('background-image', 'url(img/energia0.png)');
 
 			gameOver();
 		}
@@ -346,12 +346,12 @@ function start() {
 		window.clearInterval(game.timer);
 		game.timer = null;
 
-		$('#jogador').remove();
-		$('#inimigo1').remove();
-		$('#inimigo2').remove();
-		$('#amigo').remove();
+		$('#player').remove();
+		$('#enemy1').remove();
+		$('#enemy2').remove();
+		$('#friend').remove();
 
-		$('#fundoGame').append("<div id='fim'></div>");
+		$('#gameBackground').append("<div id='fim'></div>");
 
 		$('#fim').html(
 			'<h1> Game Over </h1><p>Your score is: ' +
