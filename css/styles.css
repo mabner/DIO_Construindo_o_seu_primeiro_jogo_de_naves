@@ -1,12 +1,13 @@
 @font-face {
-	font-family: Titulo;
-	src: url(../fontes/ANODETONOONE.TTF);
+	font-family: Title;
+	src: url(../fonts/ANODETONOONE.TTF);
 }
 
 @keyframes play {
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -512px;
 	}
@@ -16,6 +17,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -512px;
 	}
@@ -25,6 +27,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -512px;
 	}
@@ -34,6 +37,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -512px;
 	}
@@ -43,6 +47,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -512px;
 	}
@@ -52,6 +57,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -528px;
 	}
@@ -61,6 +67,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -528px;
 	}
@@ -70,6 +77,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -528px;
 	}
@@ -79,6 +87,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -528px;
 	}
@@ -88,6 +97,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -528px;
 	}
@@ -97,6 +107,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -308px;
 	}
@@ -106,6 +117,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -308px;
 	}
@@ -115,6 +127,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -308px;
 	}
@@ -124,6 +137,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -308px;
 	}
@@ -133,6 +147,7 @@
 	from {
 		background-position: 0px;
 	}
+
 	to {
 		background-position: -308px;
 	}
@@ -143,22 +158,43 @@ body {
 }
 
 h1 {
-	font-family: Titulo;
+	font-family: Title;
 	font-size: 40px;
 	color: #603a03;
 }
 
 h2 {
-	font-family:Titulo;
-	font-size:20px;
-	color:#FFF
+	font-family: Title;
+	font-size: 20px;
+	color: #fff;
 }
 
 h3 {
-	font-family:Titulo;
-	font-size:20px;
-	color:#603A03;
+	font-family: Title;
+	font-size: 20px;
+	color: #603a03;
+}
 
+button {
+	background: #c77f1a;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #eee;
+	text-shadow: none;
+}
+
+button:hover {
+	background: #603a03;
+	font-weight: bold;
+	font-size: 16px;
+	color: #fff;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #eee;
+	text-shadow: none;
 }
 
 #container {
@@ -215,7 +251,7 @@ h3 {
 
 #inicio {
 	width: 350px;
-	height: 200px;
+	height: auto;
 	background-color: #fff;
 	margin-left: auto;
 	margin-right: auto;
@@ -249,7 +285,7 @@ h3 {
 	position: absolute;
 }
 
-#placar {
+#score {
 	width: 450px;
 	height: 50px;
 	position: absolute;
@@ -262,19 +298,18 @@ h3 {
 	height: 38px;
 	position: absolute;
 	left: 750px;
-	top: 7px;	
+	top: 7px;
 }
 
 #fim {
-	width:350px;
-	height:200px;
-	background-color:#FFF;
- 	margin-left:auto;
-    	margin-right:auto;
- 	margin-top:100px;
-	text-align:center;
-	padding:10px;
-
+	width: 350px;
+	height: 200px;
+	background-color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	text-align: center;
+	padding: 10px;
 }
 
 .anima1 {
