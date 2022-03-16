@@ -160,40 +160,41 @@ body {
 h1 {
 	font-family: Title;
 	font-size: 40px;
-	color: #603a03;
+	color:  	#bf9424;
+	text-shadow: #714d5b 0px 0px 6px;
 }
 
 h2 {
 	font-family: Title;
 	font-size: 20px;
-	color: #fff;
+	color:  	#bf9424;
 }
 
 h3 {
 	font-family: Title;
 	font-size: 20px;
-	color: #603a03;
+	color:  	#bf9424;
 }
 
 button {
-	background: #c77f1a;
+	background: #c1aea0;
 	font-size: 16px;
 	font-weight: bold;
-	color: #fff;
-	border: 1px solid #eee;
+	color: #3e4c4f;
+	border: 1px solid #3e4c4f;
 	border-radius: 5px;
-	box-shadow: 5px 5px 5px #eee;
+	box-shadow: 5px 5px 5px #3e4c4f;
 	text-shadow: none;
 }
 
 button:hover {
-	background: #603a03;
+	background:  	#714d5b;
 	font-weight: bold;
 	font-size: 16px;
-	color: #fff;
-	border: 1px solid #eee;
+	color: #bf9424;
+	border: 1px solid #bf9424;
 	border-radius: 5px;
-	box-shadow: 5px 5px 5px #eee;
+	box-shadow: 5px 5px 5px #bf9424;
 	text-shadow: none;
 }
 
@@ -209,7 +210,7 @@ button:hover {
 	width: 950px;
 	height: 630px;
 	background-image: url(../img/fundo_game.jpg);
-	border-color: #fff;
+	border-color: #c1aea0;
 	border-style: solid;
 }
 
@@ -252,7 +253,7 @@ button:hover {
 #start {
 	width: 350px;
 	height: auto;
-	background-color: #fff;
+	background-color: #c1aea0;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 100px;
@@ -291,9 +292,10 @@ button:hover {
 	position: absolute;
 	left: 5px;
 	top: 590px;
+	color: #bf9424;
 }
 
-#energia {
+#energy {
 	width: 140px;
 	height: 38px;
 	position: absolute;
@@ -312,7 +314,7 @@ button:hover {
 	padding: 10px;
 }
 
-.anima1 {
+.animation1 {
 	background-image: url(../img/apache.png);
 	animation: play 0.5s steps(2) infinite;
 
@@ -322,7 +324,7 @@ button:hover {
 	-o-animation: play 0.5s steps(2) infinite;
 }
 
-.anima2 {
+.animation2 {
 	background-image: url(../img/inimigo1.png);
 	animation: play 0.5s steps(2) infinite;
 	-webkit-animation: play 0.5s steps(2) infinite;
@@ -331,7 +333,7 @@ button:hover {
 	-o-animation: play 0.5s steps(2) infinite;
 }
 
-.anima3 {
+.animation3 {
 	background-image: url(../img/friend.png);
 	animation: play2 0.9s steps(12) infinite;
 	-webkit-animation: play2 0.9s steps(12) infinite;
@@ -340,7 +342,7 @@ button:hover {
 	-o-animation: play2 0.9s steps(12) infinite;
 }
 
-.anima4 {
+.animation4 {
 	width: 44px;
 	height: 51px;
 	background-image: url(../img/friend_death.png);
