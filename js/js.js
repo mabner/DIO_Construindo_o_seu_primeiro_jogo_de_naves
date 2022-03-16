@@ -61,28 +61,28 @@ function start() {
 		moveFriend();
 		collision();
 		scoreBoard();
-		energia();
+		energyBoard();
 	}
 
 	function moveBackground() {
-		esquerda = parseInt($('#gameBackground').css('background-position'));
-		$('#gameBackground').css('background-position', esquerda - 1);
+		left = parseInt($('#gameBackground').css('background-position'));
+		$('#gameBackground').css('background-position', left - 1);
 	}
 
 	function movePlayer() {
 		if (game.pressed[KEYS.up]) {
-			var topo = parseInt($('#player').css('top'));
-			$('#player').css('top', topo - 10);
-			if (topo <= 0) {
-				$('#player').css('top', topo + 10);
+			var shootPosition = parseInt($('#player').css('top'));
+			$('#player').css('top', shootPosition - 10);
+			if (shootPosition <= 0) {
+				$('#player').css('top', shootPosition + 10);
 			}
 		}
 
 		if (game.pressed[KEYS.down]) {
-			var topo = parseInt($('#player').css('top'));
-			$('#player').css('top', topo + 10);
-			if (topo >= 434) {
-				$('#player').css('top', topo - 10);
+			var shootPosition = parseInt($('#player').css('top'));
+			$('#player').css('top', shootPosition + 10);
+			if (shootPosition >= 434) {
+				$('#player').css('top', shootPosition - 10);
 			}
 		}
 
@@ -126,10 +126,10 @@ function start() {
 			soundShoot.play();
 			canShoot = false;
 
-			topo = parseInt($('#player').css('top'));
+			shootPosition = parseInt($('#player').css('top'));
 			posicaoX = parseInt($('#player').css('left'));
 			tiroX = posicaoX + 190;
-			topoTiro = topo + 37;
+			topoTiro = shootPosition + 37;
 			$('#gameBackground').append("<div id='disparo'></div");
 			$('#disparo').css('top', topoTiro);
 			$('#disparo').css('left', tiroX);
@@ -162,7 +162,7 @@ function start() {
 			actualEnergy--;
 			inimigo1X = parseInt($('#enemy1').css('left'));
 			inimigo1Y = parseInt($('#enemy1').css('top'));
-			explosao1(inimigo1X, inimigo1Y);
+			explosion1(inimigo1X, inimigo1Y);
 
 			positionY = parseInt(Math.random() * 334);
 			$('#enemy1').css('left', 694);
@@ -173,11 +173,11 @@ function start() {
 			actualEnergy--;
 			inimigo2X = parseInt($('#enemy2').css('left'));
 			inimigo2Y = parseInt($('#enemy2').css('top'));
-			explosao2(inimigo2X, inimigo2Y);
+			explosion2(inimigo2X, inimigo2Y);
 
 			$('#enemy2').remove();
 
-			reposicionaInimigo2();
+			repositionFriend2();
 		}
 
 		if (collision3.length > 0) {
@@ -186,7 +186,7 @@ function start() {
 			inimigo1X = parseInt($('#enemy1').css('left'));
 			inimigo1Y = parseInt($('#enemy1').css('top'));
 
-			explosao1(inimigo1X, inimigo1Y);
+			explosion1(inimigo1X, inimigo1Y);
 			$('#disparo').css('left', 950);
 
 			positionY = parseInt(Math.random() * 334);
@@ -200,16 +200,16 @@ function start() {
 			inimigo2Y = parseInt($('#enemy2').css('top'));
 			$('#enemy2').remove();
 
-			explosao2(inimigo2X, inimigo2Y);
+			explosion2(inimigo2X, inimigo2Y);
 			$('#disparo').css('left', 950);
 
-			reposicionaInimigo2();
+			repositionFriend2();
 		}
 
 		if (collision5.length > 0) {
 			soundRescue.play();
 			saved++;
-			reposicionaAmigo();
+			repositionFriend();
 			$('#friend').remove();
 		}
 
@@ -217,20 +217,20 @@ function start() {
 			lost++;
 			friendX = parseInt($('#friend').css('left'));
 			friendY = parseInt($('#friend').css('top'));
-			explosao3(friendX, friendY);
+			explosion3(friendX, friendY);
 			$('#friend').remove();
 
-			reposicionaAmigo();
+			repositionFriend();
 		}
 	}
 
-	function explosao1(inimigo1X, inimigo1Y) {
+	function explosion1(enemy1X, enemy1Y) {
 		soundExplosion.play();
 		$('#gameBackground').append("<div id='explosao1'></div");
 		$('#explosao1').css('background-image', 'url(img/explosao.png)');
 		var div = $('#explosao1');
-		div.css('top', inimigo1Y);
-		div.css('left', inimigo1X);
+		div.css('top', enemy1Y);
+		div.css('left', enemy1X);
 		div.animate(
 			{
 				width: 200,
@@ -239,16 +239,16 @@ function start() {
 			'slow',
 		);
 
-		var tempoExplosao = window.setInterval(removeExplosao, 1000);
+		var explosionTime = window.setInterval(removeExplosion, 1000);
 
-		function removeExplosao() {
+		function removeExplosion() {
 			div.remove();
-			window.clearInterval(tempoExplosao);
-			tempoExplosao = null;
+			window.clearInterval(explosionTime);
+			explosionTime = null;
 		}
 	}
 
-	function reposicionaInimigo2() {
+	function repositionFriend2() {
 		var tempocollision4 = window.setInterval(reposiciona4, 5000);
 
 		function reposiciona4() {
@@ -261,7 +261,7 @@ function start() {
 		}
 	}
 
-	function explosao2(inimigo2X, inimigo2Y) {
+	function explosion2(inimigo2X, inimigo2Y) {
 		soundExplosion.play();
 		$('#gameBackground').append("<div id='explosao2'></div");
 		$('#explosao2').css('background-image', 'url(img/explosao.png)');
@@ -276,21 +276,21 @@ function start() {
 			'slow',
 		);
 
-		var tempoExplosao2 = window.setInterval(removeExplosao2, 1000);
+		var explosionTime2 = window.setInterval(removeExplosion2, 1000);
 
-		function removeExplosao2() {
+		function removeExplosion2() {
 			div2.remove();
-			window.clearInterval(tempoExplosao2);
-			tempoExplosao2 = null;
+			window.clearInterval(explosionTime2);
+			explosionTime2 = null;
 		}
 	}
 
-	function reposicionaAmigo() {
-		var tempoAmigo = window.setInterval(reposiciona6, 6000);
+	function repositionFriend() {
+		var friendTime = window.setInterval(reposition6, 6000);
 
-		function reposiciona6() {
-			window.clearInterval(tempoAmigo);
-			tempoAmigo = null;
+		function reposition6() {
+			window.clearInterval(friendTime);
+			friendTime = null;
 
 			if (endGame == false) {
 				$('#gameBackground').append(
@@ -300,17 +300,17 @@ function start() {
 		}
 	}
 
-	function explosao3(friendX, friendY) {
+	function explosion3(friendX, friendY) {
 		soundLost.play();
 		$('#gameBackground').append("<div id='explosao3' class='animation4'></div");
 		$('#explosao3').css('top', friendY);
 		$('#explosao3').css('left', friendX);
-		var tempoExplosao3 = window.setInterval(resetaExplosao3, 1000);
+		var explosionTime3 = window.setInterval(resetExplosion3, 1000);
 
-		function resetaExplosao3() {
+		function resetExplosion3() {
 			$('#explosao3').remove();
-			window.clearInterval(tempoExplosao3);
-			tempoExplosao3 = null;
+			window.clearInterval(explosionTime3);
+			explosionTime3 = null;
 		}
 	}
 
@@ -320,21 +320,21 @@ function start() {
 		);
 	}
 
-	function energia() {
+	function energyBoard() {
 		if (actualEnergy == 3) {
-			$('#energy').css('background-image', 'url(img/energia3.png)');
+			$('#energy').css('background-image', 'url(img/energy3.png)');
 		}
 
 		if (actualEnergy == 2) {
-			$('#energy').css('background-image', 'url(img/energia2.png)');
+			$('#energy').css('background-image', 'url(img/energy2.png)');
 		}
 
 		if (actualEnergy == 1) {
-			$('#energy').css('background-image', 'url(img/energia1.png)');
+			$('#energy').css('background-image', 'url(img/energy1.png)');
 		}
 
 		if (actualEnergy == 0) {
-			$('#energy').css('background-image', 'url(img/energia0.png)');
+			$('#energy').css('background-image', 'url(img/energy0.png)');
 
 			gameOver();
 		}
@@ -359,12 +359,12 @@ function start() {
 			'<h1> Game Over </h1><p>Your score is: ' +
 				score +
 				'</p>' +
-				"<div id='reinicia' onClick=reiniciaJogo()><button>Play again!</button></div>",
+				"<div id='reinicia' onClick=restartGame()><button>Play again!</button></div>",
 		);
 	}
 }
 
-function reiniciaJogo() {
+function restartGame() {
 	soundGameOver.pause();
 	$('#fim').remove();
 	start();
