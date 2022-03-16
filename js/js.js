@@ -265,7 +265,6 @@ function start() {
 	}
 
 	//Reposiciona Amigo
-
 	function reposicionaAmigo() {
 		var tempoAmigo = window.setInterval(reposiciona6, 6000);
 
